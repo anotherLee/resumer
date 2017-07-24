@@ -6,7 +6,7 @@
       <span @click="preview" v-bind:class="{active:classChange===false}">预览</span>
     </p>
     <p class="save">
-      <button>保存</button>
+      <button @click="save">保存</button>
       <button>退出</button>
     </p>
   </div>
@@ -28,6 +28,9 @@
       edit(){
         this.$emit('edit')
       }
+    },
+    save(){
+      this.$emit('save')
     }
   }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <header>
-      <Topbar v-on:preview="preview" v-on:edit="edit" id="topbar" v-bind:previewMode="previewMode" v-bind:classChange="classChange"></Topbar>
+      <Topbar v-on:preview="preview" v-on:edit="edit" v-on:save="save" id="topbar" v-bind:previewMode="previewMode" v-bind:classChange="classChange"></Topbar>
     </header>
 
     <main>
@@ -51,6 +51,10 @@ export default {
     exitPreview(){
       this.previewMode = false
       this.classChange = true
+    },
+    save(){
+      let dataString = JSON.stringify(this.resumer)
+      window.localStorage.setItem('resumerData',dataString)
     }
   }
 }
